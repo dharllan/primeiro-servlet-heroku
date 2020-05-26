@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns = "/ExemploServlet")
-public class ExemploServlet  extends HttpServlet{
+public class ExemploServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,12 +27,12 @@ public class ExemploServlet  extends HttpServlet{
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection conexao = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10343527","sql10343527","hAj9EyMSFf");
 		
-		out.print("Ok para banco de dados");
+		//out.print("Ok para banco de dados");
 		
 		
 		PreparedStatement pst = conexao.prepareStatement("insert into usuario (email) values(?)");
 		pst.setString(1, email);
-		
+		pst.execute();
 		pst.close();
 		conexao.close();
 		} catch (Exception e ) {
