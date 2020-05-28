@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UsuarioDao;
+import modelo.Usuario;
+
 @WebServlet(urlPatterns = "/ExemploServlet")
 public class ExemploServlet extends HttpServlet {
 
@@ -20,12 +23,19 @@ public class ExemploServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		UsuarioDao dao = new UsuarioDao();
+		Usuario usuario = new Usuario();
+		
 		String email = req.getParameter("email");
+		usuario.setEmail(email);
+		
 		PrintWriter out = resp.getWriter();
 		out.print("<html><head><title>Meu Servlet</title></head></body>");
-		out.print("o email digitado foi: " +email);
-		
-		
+		out.print("o email digitado foi: "+usuario.getEmail());
+		if ( dao.incluir(usuario)) {
+			
+			out.print("Usuario inserido com sucesso");
+		}
 		out.print("<br> Ola, Servlet</body></html>");
 }
 }
