@@ -1,0 +1,23 @@
+<%@page import="dao.UsuarioDao"%>
+<%@page import="modelo.Usuario"%>
+<%@page import="java.util.List"%>
+<html>
+<body>
+<head>
+<meta charset="UTF-8">
+<title>Listar Usuario</title>
+<h2>Listar Usuario</h2>
+<table>
+<tr><td>id</td><td>E-mail</td></tr>
+<%
+UsuarioDao dao = new UsuarioDao();
+List<Usuario> lsUsuarios = dao.listar();
+for (Usuario u : lsUsuarios){
+	
+	out.print("<tr><td>"+u.getId()+"d</td><td>"+u.getEmail()+"</td></tr>");
+}
+
+%>
+</table>
+</body>
+</html>
