@@ -9,7 +9,7 @@ public class Conexao {
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conexao = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10343527","sql10343527","hAj9EyMSFf");
+		Connection conexao = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10345222","sql10345222","P3MRBkpIKT");
 		return conexao;
 		} catch (Exception e ) {
 			System.out.println("Falha no banco de dados");
