@@ -22,5 +22,6 @@
 		<input type="submit">
 
 	</form>
+	<a href='listarUsuario.jsp'>Listar</a>
 </body>
 </html>

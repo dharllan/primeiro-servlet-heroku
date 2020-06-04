@@ -14,8 +14,14 @@ UsuarioDao dao = new UsuarioDao();
 List<Usuario> lsUsuarios = dao.listar();
 for (Usuario u : lsUsuarios){
 	
-out.print("<tr><td>"+u.getId()+"</td><td>"+u.getEmail()+"</td>"+
-"<td> <a href='index.jsp?id="+u.getId()+"' >Editar</a> </td></tr>");
+out.print("<tr><td>" + u.getId()+"</td><td>" + u.getEmail() + "</td>"+ "<td> <a href='index.jsp?id=" 
++ u.getId() + "' >Editar</a></td>");
+%>
+
+<td><a onclick= "return confirm('Deseja realmente excluir esse registro ?')" href='ExemploServlet?acao=excluir&id=<%= u.getId()%>'>Excluir</a></td>
+
+<% out.print("</tr>");
+
 }
 
 %>

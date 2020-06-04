@@ -33,6 +33,7 @@ public class ExemploServlet extends HttpServlet {
 		
 		PrintWriter out = resp.getWriter();
 		out.print("<html><head><title>Meu Servlet</title></head></body>");
+		if (email != null)
 		out.print("o email digitado foi: "+usuario.getEmail());
 		
 		if (acao.equals("incluir")) {
@@ -50,6 +51,15 @@ public class ExemploServlet extends HttpServlet {
 				out.print("Usuario atualizado com sucesso");
 			}
 			}
+		if(acao.equals("excluir")) {
+			usuario.setId(Integer.parseInt(req.getParameter("id")));
+			if( dao.excluir(usuario)) {
+				out.print("Usuario excluido com sucesso !");
+				
+			}
+				
+		}
+				
 		out.print("<br> Ola, Servlet</body></html>");
 }
 }
